@@ -17,6 +17,7 @@ export const AudioCanvas: FC<Props> = ({ url, peaksUrl }) => {
       let peaks: any;
       let interval: NodeJS.Timeout;
       try {
+        setTimer(() => ({ startTime: (new Date()).getTime(), timerValue: 0 }))
         fetch(peaksUrl).then(res => res.json()).then(value => {
           peaks = value
           if (container.current && !waveRef.current) {
@@ -44,7 +45,6 @@ export const AudioCanvas: FC<Props> = ({ url, peaksUrl }) => {
             const myAudio = new Audio(url);
             myAudio.crossOrigin = 'anonymous';
 
-            setTimer(() => ({ startTime: (new Date()).getTime(), timerValue: 0 }))
             interval = setInterval(() => setTimer(value => ({
               ...value,
               timerValue: (new Date()).getTime() - value.startTime
