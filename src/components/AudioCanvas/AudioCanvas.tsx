@@ -31,7 +31,6 @@ export const AudioCanvas: FC<Props> = ({ url, peaksUrl }) => {
             waveRef.current.on('ready', () => {
               clearInterval(interval)
               setIsLoading(false)
-              waveRef.current?.play()
             })
       
             let max = peaks.data[0]
