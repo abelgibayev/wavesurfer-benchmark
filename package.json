@@ -2,6 +2,7 @@
   "name": "test-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://abelgibayev.github.io/wavesurfer-benchmark",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -18,6 +19,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -42,6 +45,7 @@
     ]
   },
   "devDependencies": {
-    "@types/wavesurfer.js": "^6.0.3"
+    "@types/wavesurfer.js": "^6.0.3",
+    "gh-pages": "^4.0.0"
   }
 }
